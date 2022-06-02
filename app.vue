@@ -76,8 +76,13 @@
       </div>
       <button class="primary" @click="computedNames">Find names</button>
     </div> 
+    <div class="cards-container">
+      <div v-for="name in selectedNames" :key="name" class="card">
+        <h3>{{ name }}</h3>
+        <p>X</p>
+      </div>
+    </div>
   </div>
-  {{ selectedNames }}
 </template>
 
 <script lang="ts" setup>
@@ -189,6 +194,31 @@ import { Gender, Popularity, Length, names } from '@/data'
   .primary:hover {
     background: white;
     color: rgb(27,60,138);
+  }
+
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+
+  .card {
+    background-color: rgb(27,60,138);
+    border-radius: 1rem;
+    color: white;
+    margin-bottom: 1rem;
+    margin-right: 0.5rem;
+    padding: 1rem;
+    position: relative;
+    width: 28%;
+  }
+
+  .card p {
+    color: rgba(255,255,255,0.178);
+    cursor: pointer;
+    right: 1rem;
+    position: absolute;
+    top: 0;
   }
 
 </style>
